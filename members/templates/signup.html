@@ -1,0 +1,123 @@
+{assign var="title" value="Sign-up"}
+{include file="header.html"}
+<center>
+
+{if $error}
+<table><tr><td>
+{foreach from=$error item=e}
+<li><font color=red><b>{$e}</b></font>
+{/foreach}
+</td></tr></table>
+{/if}
+
+
+<form name=signup method=post>
+<table align=center class="vedit tableline">
+
+{* If products count > 1, then build select, else just display one title *}
+{if count($products)>1}
+<tr>
+    <th class="grey mBot10"><b>Select a Membership Type</b></th>
+    <td>
+    {foreach from=$products item=p} 
+    <input type=radio name=product_id value="{$p.product_id|escape}"
+        {if $p.product_id == $smarty.request.product_id }checked{/if}
+        ><b>{$p.title} (${$p.price})</b><br>
+        <small>{$p.description}</small><br><br>
+    {/foreach}
+    </td>
+</tr>
+{else} {* If only one membership type enabled *}
+<tr>
+    <th><b>Membership Type</b></th>
+    <td>
+        {foreach from=$products item=p} 
+        <b>{$p.title}</b> (${$p.price|number_format}) - {$p.description}<br>
+        <input type=hidden name=product_id value="{$p.product_id}">
+        {/foreach}
+    </td>
+</tr>
+{/if}
+
+{* Select Payment System in same way, only if its count > 1 *}
+{if count($paysystems)>1}
+<tr>
+    <th><b>Select a Payment System</b></th>
+    <td>
+        {foreach from=$paysystems item=p} 
+        <input type=radio name=paysys_id value="{$p.paysys_id|escape}"
+            {if $p.paysys_id eq $smarty.request.paysys_id }checked{/if}
+            ><b>{$p.title} - </b>
+            <small>{$p.description}</small><br><br>
+        {/foreach}
+    </td>
+</tr>
+{else}{* There is only one payment system enabled *}
+<tr>
+    <th><b>Payment System</b></th>
+    <td>
+        {foreach from=$paysystems item=p} 
+        <b>{$p.title}</b> - {$p.description}<br>
+        <input type=hidden name=paysys_id value="{$p.paysys_id|escape}">
+        {/foreach}
+    </td>
+</tr>
+{/if}
+
+
+<tr>
+    <th width=40%><b>Your Name</b><br>
+    <small>your first & last name</small></th>
+    <td nowrap><input type=text name=name_f value="{$smarty.request.name_f|escape}" size=15>
+        <input type=text name=name_l value="{$smarty.request.name_l|escape}" size=15>
+    </td>
+</tr>
+
+<tr>
+    <th width=40%><b>Your E-Mail Address</b><br>
+    <small>will be used to send confirmation</small></th>
+    <td nowrap><input type=email name=email value="{$smarty.request.email|escape}" size=30>
+    </td>
+</tr>
+
+<script>
+function checkUniqLogin(){ldelim}
+    var login=document.forms['signup'].elements['login'].value;
+    window.open('uniq_login.php?login='+login, '',
+    'dependent=1,directories=0,height=400,width=300,location=0');
+{rdelim}
+</script>
+
+<tr>
+    <th><b>Choose a Log-in Name (User ID)</b><br>
+    <small>enter preferred user id<br>- it will be used after payment<br>
+           to login into your account.<br> Must be 4 or more characters<br>
+           and can contain small letters, numbers and _</small></th>
+    <td nowrap><input type=text name=login value="{$smarty.request.login|escape}" size=15 maxlength=15>
+    <a href="javascript:checkUniqLogin()"><small>check for uniqueness</small></a>
+    </td>
+</tr>
+
+<tr>
+    <th><b>Choose a Password</b><br>
+    <small>Must be more 4 or more characters</small></th>
+    <td nowrap><input type=password name=pass0 value="{$smarty.request.pass0|escape}" size=15 maxlength=15>
+    </td>
+</tr>
+
+<tr>
+    <th><b>Confirm your password</b><br>
+    <small>enter password again</small></th>
+    <td nowrap><input type=password name=pass1 value="{$smarty.request.pass1|escape}" size=15 maxlength=15>
+    </td>
+</tr>
+
+    
+</table>
+<br>
+<input type=hidden name=do_payment value=1>
+<input type=submit value="Continue">
+</form>
+
+</center>
+{include file="footer.html"}

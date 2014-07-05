@@ -1,0 +1,82 @@
+{assign var=title value="Edit Payment"}
+{include file="admin/header.inc.html"}
+{include file="admin/user_nb.inc.html" selected="payments"}
+<center>
+
+<h3>{$title}</h3>
+
+<form method=post>
+<table class=vedit width=95%>
+<tr>
+    <th><b>Product</b></th>
+    <td><select name=product_id size=1>
+        {html_options options=$products selected=$p.product_id}
+        </select>
+    </td>
+</tr>
+<tr>
+    <th><b>Subscription Begin</b></th>
+    <td>{html_select_date prefix="begin_date" time=$p.begin_date start_year="-5"  end_year="+10"}
+    </td>
+</tr>
+<tr>
+    <th><b>Subscription End</b></th>
+    <td>{html_select_date prefix="expire_date" time=$p.expire_date start_year="-5"  end_year="+10"}
+    </td>
+</tr>
+<tr>
+    <th><b>Payment System</b></th>
+    <td><select name=paysys_id size=1>
+        {html_options options=$paysystems selected=$p.paysys_id}
+    </select>
+    </td>
+</tr>
+<tr>
+    <th><b>Receipt #</b><br><small>as received from payment system</small></th>
+    <td><input type=text name=receipt_id value="{$p.receipt_id|escape}" size=10 class=small></td>
+</tr>
+<tr>
+    <th><b>Amount, $</b></th>
+    <td><input type=text name=amount value="{$p.amount|escape}" size=6 maxlength=6></td>
+</tr>
+<tr>
+    <th><b>Completed</b></th>
+    <td><input type=checkbox name=completed value=1 {if $p.completed}checked{/if}></td>
+</tr>
+</tr>
+</table>
+<br>
+
+    <input type=submit value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"></td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type=button value="&nbsp;&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;&nbsp;" onclick="history.back(-1)">
+    <input type=hidden name=payment_id value="{$p.payment_id}">
+    <input type=hidden name=member_id value="{$member_id|escape}">
+    <input type=hidden name=action value=payment_save>
+</form>
+
+
+<!-- display payment details (from payment systems -->
+{if is_array($p['data'][0]) or is_array($p['data'][1])}
+    {foreach from=$p['data'] item=pp}
+    <table style='font-size: 8pt;' bgcolor=#e0e0e0>
+        {foreach from=$pp item=ppp key=kkk}
+        <tr><th align=right>{$kkk}&nbsp;</th><td>&nbsp;{$ppp}</td></tr>
+        {/foreach}
+    </table>
+    <br><br>
+    {/foreach}
+{else}
+    <table style='font-size: 8pt;' bgcolor=#e0e0e0>
+        {foreach from=$p.data item=ppp key=kkk}
+        <tr><th align=right>{$kkk}&nbsp;</th><td>&nbsp;{$ppp}</td></tr>
+        {/foreach}
+    </table>
+{/if}
+
+
+
+{include file="admin/footer.inc.html"}

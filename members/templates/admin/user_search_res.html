@@ -1,0 +1,31 @@
+{assign var=title value="Search Users"}
+{include file="admin/header.inc.html"}
+<center>
+<h3>{$title}</h3>
+
+<b>Search resuls. You may refine your search <a href="users.php?action=search_form">here</a></b>
+<br><br>
+<table width=80% class=hedit>
+<tr>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Payments</th>
+    <th width=5%><font color=606060>Actions</font></th>
+</tr>
+{foreach from=$ul item=u}
+<tr>
+    <td> <a href="users.php?action=edit&member_id={$u.member_id}"><b>{$u.login}</b></a> </td>
+    <td> {$u.name_f} {$u.name_m} {$u.name_l} </td>
+    <td> <a href="mailto: {$u.email|escape:"url"}">{$u.email}</a> </td>
+    <td> <a href="users.php?action=payments&member_id={$u.member_id}" title="Edit or Add Subscriptions">{if $u.count_of_completed}{$u.count_of_completed} - ${$u.summa_of_completed|number_format}{else}Newer{/if}</a> </td>
+    <td nowrap>
+            <a href="users.php?action=edit&member_id={$u.member_id}">Edit</a>
+            <a href="users.php?action=delete&member_id={$u.member_id}" onclick="return confirm('You want to delete user {$u.login}?')">Delete</a>
+     </td>
+</tr>
+{/foreach}
+</table>
+
+{include file="admin/footer.inc.html"}
+

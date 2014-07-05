@@ -1,0 +1,118 @@
+{if $add}
+{assign var=title value="Add User"}
+{else}
+{assign var=title value="Edit User"}
+{/if}
+{include file="admin/header.inc.html"}
+{include file="admin/user_nb.inc.html" selected="user"}
+<center>
+
+<h3>{$title}</h3>
+
+<form method=post>
+<table class=vedit>
+<tr>
+    <th><b>Member ID#</b></th>
+    <td>{$u.member_id}<input type=hidden name=member_id value="{$u.member_id}"></td>
+</tr>
+<tr>
+    <th><b>Username</b></th>
+    <td><input type=text name=login value="{$u.login}" size=32></td>
+</tr>
+<tr>
+    <th><b>Password</b></th>
+    <td> <input type=text name=pass value="{$u.pass}" size=32></td>
+</tr>
+<tr>
+    <th><b>Email</b></th>
+    <td> <input type=text name=email value="{$u.email}" size=32></td>
+</tr>
+<tr>
+    <th><b>Real Name</b></th>
+    <td nowrap> 
+    <input type=text name=name_f value="{$u.name_f}" size=14>
+    <input type=text name=name_l value="{$u.name_l}" size=15>
+    </td>
+</tr>
+<tr>
+    <th><b>Street Address</b></th>
+    <td> <input type=text name=street value="{$u.street}" size=32></td>
+</tr>
+<tr>
+    <th><b>City</b></th>
+    <td><input type=text name=city value="{$u.city}" size=32></td>
+</tr>
+<tr>
+    <th><b>State</b></th>
+    <td><input type=text name=state value="{$u.state}" size=2 maxlength=2></td>
+</tr>
+<tr>
+    <th><b>ZIP Code</b></th>
+    <td><input type=text name=zip value="{$u.zip}" size=6 maxlength=8></td>
+</tr>
+<tr>
+    <th><b>Country</b></th>
+    <td><input type=text name=country value="{$u.country}" size=32></td>
+</tr>
+<tr>
+    <th><b>Gender</b></th>
+    <td>
+        <input type=radio name=is_male value=1 {if $u.is_male}checked{/if}>Male
+        <input type=radio name=is_male value=0 {if $u.is_male == 0 }checked{/if}>Female
+    </td>
+</tr>
+<tr>
+    <th><b>Signup Info:</b></th>
+    <td><b>Time:</b> <i>{$u.added|date_format:"%m/%d/%Y %H:%M:%S"}</i> <b>IP:</b> <i>{$u.remote_addr}</i></td>
+</tr>
+{foreach from=$member_additional_fields item=f}
+{if $f.type eq 'cc-number'}
+<tr>
+    <th><b>{$f.title}</b><br><small>{$f.description}</small></th>
+    {assign var=field_name value=$f.name}
+    <td><input type=text name={$field_name} value="{$u.data.$field_name|escape}">
+    </td>
+</tr>
+{elseif $f.type eq 'select'}
+<tr>
+    <th><b>{$f.title}</b><br><small>{$f.description}</small></th>
+    {assign var=field_name value=$f.name}
+    <td><select name="{$field_name|escape}" size='{$f.size}'>
+    {html_options options=$f.options selected=$u.data.$field_name}
+    </select></td>
+</tr>
+{elseif $f.type eq 'readonly'}
+<tr>
+    <th><b>{$f.title}</b><br><small>{$f.description}</small></th>
+    {assign var=field_name value=$f.name}
+    <td>{$u.data.$field_name}</td>
+</tr>
+{elseif $f.type eq 'cc-expire'}
+<tr>
+    <th><b>{$f.title}</b><br><small>{$f.description}</small></th>
+    {assign var=field_name value=$f.name}
+    <td>{$u.data.$field_name}</td>
+</tr>
+{elseif $f.type eq 'hidden'}
+{else}
+<tr>
+    <th><b>{$f.title}</b><br><small>{$f.description}</small></th>
+    {assign var=field_name value=$f.name}
+    <td><input type=text name={$field_name} value="{$u.data.$field_name|escape}">
+    </td>
+</tr>
+{/if}
+{/foreach}
+</table>
+<br>
+<input type=submit value="&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;&nbsp;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type=button value="&nbsp;&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;&nbsp;" onclick="history.back(-1)">
+<input type=hidden name=action value={if $add}add_save{else}edit_save{/if}>
+</form>
+
+{include file="admin/footer.inc.html"}
+

@@ -1,0 +1,38 @@
+{assign var=title value="Products (Subscription Types) List"}
+{include file="admin/header.inc.html"}
+<center>
+<h3>{$title}</h3>
+
+<table class=hedit width=70%>
+<tr>
+    <th>Product #</th>
+    <th>Title</th>
+    <th>Price</th>
+    <th>Duration, days</th>
+    <th width=5%><font color=606060>Actions</font></th>
+</tr>
+{foreach from=$pl item=p}
+<tr>
+    <td> <a href="products.php?action=edit&product_id={$p.product_id}"><b>{$p.product_id}</b></a> </td>
+    <td> {$p.title} </td>
+    <td> {$p.price} </td>
+    <td> {$p.expire_days} </td>
+    <td nowrap>
+            <a href="products.php?action=edit&product_id={$p.product_id}">Edit</a>
+            <a href="products.php?action=delete&product_id={$p.product_id}" onclick="return confirm('You want to delete product {$u.login}?')">Delete</a>
+     </td>
+</tr>
+{/foreach}
+</table>
+
+<br><br>
+<table width=70% bgcolor=#F0F0F0><tr><td>
+<small><b><div style='font-weight: bold;'>NOTES:</b><br>
+<li>Deleting existing subscriptions will affect existsing users.
+<li>Changing of subscription details such as duration, price, etc. will 
+    not affect existsing subscibers
+</small>
+</td><tr></table>
+
+{include file="admin/footer.inc.html"}
+

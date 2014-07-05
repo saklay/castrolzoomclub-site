@@ -1,0 +1,31 @@
+/* Begin: Outer div container with borders */
+
+.homepageDir{
+
+	border: 1px solid #99D6AD;
+
+	width: 236px;
+
+	margin: 0px;
+
+	padding: 0px;
+
+}
+
+/* End: Outer div container with borders */
+
+
+
+/* Begin: Inner div container with margins */
+
+.homepageDirInside{
+
+	width: 213px;
+
+	margin: 6px 8px 8px 10px;
+
+	padding: 0;
+
+}
+
+/* End: Inner div container with margins */

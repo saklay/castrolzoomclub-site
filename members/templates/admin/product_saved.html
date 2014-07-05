@@ -1,0 +1,15 @@
+{assign var=title value="Information has been saved"}
+{include file="admin/header.inc.html"}
+
+<br><br>
+<h3>{$title}</h3>
+
+{if $msg}
+{$msg}
+<br><br>
+{/if}
+
+Click <a href="{$link}">here</a> to continue.
+
+{include file="admin/footer.inc.html"}
+

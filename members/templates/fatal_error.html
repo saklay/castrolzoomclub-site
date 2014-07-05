@@ -1,0 +1,18 @@
+{assign var="title" value="Fatal Error"}
+{include file="header.html"}
+<center>
+<div class=hdr>{$title}</div>
+<hr>
+
+{if $error}
+<table><tr><td>
+{foreach from=$error item=e}
+<li><font color=red><b>{$e}</b></font>
+{/foreach}
+</td></tr></table>
+{/if}
+<br>
+Please contact site administrator: <a href="mailto: {$admin_email}">{$admin_email}</a>.
+
+</center>
+{include file="footer.html"}

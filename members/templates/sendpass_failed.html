@@ -1,0 +1,14 @@
+{assign var="title" value="Lost Password sending error"}
+{include file="header.html"}
+<center>
+<div class=hdr>{$title}</div>
+<hr>
+<br>
+<b>The information you have entered is incorrect</b><br>
+User <i>{$smarty.request.login}</i> is not found in database.
+<br>
+<br>
+<a href="javascript: history.back(-1)">Return to log-in page and try again</a>
+
+</center>
+{include file="footer.html"}

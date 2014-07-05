@@ -1,0 +1,592 @@
+/* Begin: Global */
+
+body{
+
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+
+	margin: 0px;
+
+	padding: 0px;
+
+}
+
+
+
+form {
+
+margin: 0px;
+
+padding: 0px;
+
+}
+
+
+
+img{
+
+	font-size: 8pt;
+
+	font-family: arial;
+
+	font-weight: normal;
+
+	color: #666666;
+
+}
+
+ul{
+
+	margin: 2px 0px 10px 15px;
+
+}
+
+
+
+html>body ul{
+
+	margin: 2px 0px 10px 15px;
+
+	padding: 0px;
+
+}
+
+
+
+/* End: Global */
+
+
+
+/* Begin: vertical lines */
+
+.vSpacer6{
+
+	height: 7px;
+
+	overflow: hidden;
+
+}
+
+
+
+.vSpacer8{
+
+	overflow: hidden;
+
+	height: 8px;
+
+}
+
+
+
+.vSpacer10{
+
+	overflow: hidden;
+
+	height: 10px;	
+
+}
+
+
+
+.vSpacer15{
+
+	height: 15px;
+
+}
+
+/* End: vertical lines */
+
+
+
+/* Begin: spacers */
+
+/* Begin: Padding Top */
+
+.pTop5{
+
+ padding-top: 5px;
+
+}
+
+
+
+.pTop10{
+
+ padding-top: 10px;
+
+}
+
+
+
+.pTop15{
+
+	padding-top: 15px;
+
+}
+
+
+
+.pTop20{
+
+ padding-top: 20px;
+
+}
+
+/* End: Padding Top */
+
+
+
+/* Begin: Padding Bottom */
+
+/* Begin: pBot2 for the back to top arrow in  */
+
+.pBot2{
+
+	padding-bottom: 2px;
+
+}
+
+/* End: pBot2 for the back to top arrow in footer */
+
+
+
+.pBot5{
+
+	padding-bottom: 5px;
+
+}
+
+
+
+.pBot10{
+
+	padding-bottom:10px;
+
+}
+
+
+
+.pLeft15{
+
+	padding-left: 15px;
+
+}
+
+
+
+.pBot15{
+
+	padding-bottom: 15px;
+
+}
+
+
+
+.pBot20{
+
+	padding-bottom: 20px;
+
+}
+
+/* End: Padding Bottom */
+
+
+
+/* Begin: Margin Top */
+
+.mTop5{
+
+	margin-top: 5px;
+
+}
+
+
+
+.mTop15{
+
+	margin-top: 15px;
+
+}
+
+.mTop20{
+
+	margin-top: 20px;
+
+}
+
+/* End: Margin Top */
+
+
+
+/* Begin: Margin Right */
+
+.mRight5 {
+
+	margin-right: 5px;
+
+}
+
+
+
+.mRight10{
+
+	margin-right: 10px;
+
+}
+
+
+
+/* Begin: Right margins specific to CT_H1 template */
+
+.mRight12{
+
+	margin-right: 12px;
+
+}
+
+
+
+.mRight13{
+
+	margin-right: 13px;
+
+}
+
+
+
+.mRight8{
+
+	margin-right: 8px;
+
+}
+
+
+
+.mRight9{
+
+	margin-right: 9px;
+
+}
+
+/* End: Right margins specific to CT_H1 template */
+
+
+
+.mRight15{
+
+	margin-right: 15px;
+
+}
+
+/* End: Margin Right */
+
+
+
+/* Begin: Margin Bottom */
+
+.mBot3{
+
+	margin-bottom: 3px;
+
+}
+
+.mBot5{
+
+	margin-bottom: 5px;
+
+	
+
+}
+
+
+
+.mBot8{
+
+	margin-bottom: 8px;
+
+}
+
+
+
+.mBot10{
+
+	margin-bottom: 10px;
+
+}
+
+
+
+.mBot15{
+
+	margin-bottom: 15px;
+
+}
+
+
+
+.mBot20{
+
+	margin-bottom: 20px;
+
+}
+
+/* Begin: Margin Bottom */
+
+
+
+/* Begin: Margin left */
+
+.mLeft5{
+
+	margin-left: 5px;
+
+}
+
+
+
+.mLeft10{
+
+	margin-left: 10px;
+
+}
+
+
+
+.mLeft15{
+
+	margin-left: 15px;
+
+}
+
+
+
+.mLeft20{
+
+	margin-left: 20px;
+
+}
+
+
+
+.mLeft195{
+
+	margin-left: 195px;
+
+}
+
+/* End: Margin left */
+
+/* End: Spacers */
+
+
+
+/* Begin: Horizontal line divider */
+
+.lineDivider{
+
+	background-color: #99D6AD;
+
+	height: 1px;
+
+	font-size: 11pt;
+
+}
+
+/* End: Horizontal line divider */
+
+
+
+/* Begin: Horizontal line divider 2 */
+
+.lineDivider2{
+
+	border-top: 1px solid #CCCCCC;
+
+	border-bottom: 1px solid #FFFFFF;
+
+	height: 0px;
+
+}
+
+/* End: Horizontal line divider 2 */
+
+
+
+ /* Begin: Grey Pipe */
+
+.greyPipe{
+
+	color: #999999;
+
+	float: left;
+
+	margin: 0px 9px 0px 9px;
+
+	font-size: 8pt;
+
+}
+
+/* End: Grey Pipe */
+
+
+
+html>body .greyPipe{
+
+	margin-right: 10px;		
+
+}
+
+
+
+/* Begin: Green Pipe */
+
+.greenPipe{
+
+	color: #007E3A;
+
+	font-size: 11pt;
+
+	margin-left: 4px;
+
+	margin-right: 4px;			
+
+}
+
+
+
+/* End: Green Pipe */
+
+/* Begin: clear All */
+
+.clearAll{
+
+	clear: both;
+
+	overflow: hidden;
+
+}
+
+/* End: clear All */
+
+
+
+/* BEGIN: GLOBAL FOOTER */
+
+/* Begin: Back to top Container */
+
+.backToTopContainer{
+
+	width: 100px;
+
+	text-align: right;	
+
+	margin-right: 10px;
+
+	margin-left: 5px;
+
+}
+
+/* End: Back to top Container */
+
+
+
+/* Begin: Footer Container */
+
+#globalFooterContainer{
+
+	width: 740px;
+
+	margin-bottom: 10px;
+
+	margin-left: 20px;
+
+	padding-top: 30px;
+
+}
+
+/* End: Footer container */
+
+
+
+.footerTable{
+
+	background-color: #EFEFEF;
+
+	border-top: 1px solid #99D6AD;
+
+}
+
+/* END: GLOBAL FOOTER */
+
+
+
+/* BEGIN: POPUP Footer */
+
+/* Begin: popupFooter Container */
+
+#popupFooterContainer{
+
+	width: 570px;
+
+	margin-bottom: 10px;
+
+	margin-left:0px;
+
+	padding-top: 30px;
+
+}
+
+
+
+#popup2colFooterContainer{
+
+	width: 375px;
+
+	margin-bottom: 10px;	
+
+	padding-top: 30px;
+
+}
+
+
+
+/* End: popupFooter container */
+
+/* END: POPUP Footer */
+
+
+
+/* BEGIN: BREADCRUMB */
+
+#breadCrumbContainer{
+
+	width:740px;
+
+	margin-bottom: 15px;
+
+	margin-left: 20px;
+
+	vertical-align: top;
+
+	text-align: left;
+
+	position: relative;
+
+	z-index: 1;
+
+}
+
+
+
+html>body #breadCrumbContainer{
+
+	margin-top: 6px;
+
+}
+
+/* END: BREADCRUMB */
+
+
+
+
+

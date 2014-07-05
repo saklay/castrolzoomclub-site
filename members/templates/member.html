@@ -1,0 +1,84 @@
+{assign var="title" value="Your Membership Information"}
+{include file="header.html"}
+<center>
+<div class=hdr>{$title}</div>
+<hr>
+
+<table width=100%><td width=40% valign=top align=center>
+<!-- display links to protected areas for customer -->
+{if $smarty.session._amember_products}{* Customer have active subscriptions, display it if config allows *}
+    <h3 style='color: #909090;'>Your subscriptions</h3>
+    <table align=center><tr><td> <!-- table to align subscriptions -->
+    {foreach from=$smarty.session._amember_products item=p}
+    <li style='color: 903090;'>
+    {if $p.url gt "" }
+        {if $config.display_member_pw_urls}
+        <a href="http://{$smarty.session._amember_user.login}:{$smarty.session._amember_user.pass}@{$smarty.server.HTTP_HOST}{$p.url}">{$p.title}</a>
+        {else}
+        <a href="http://{$smarty.server.HTTP_HOST}{$p.url}">{$p.title}</a>
+        {/if}
+    {else}
+        <b>{$p.title}</b>
+    {/if}
+    {/foreach}
+    </td></tr></table>
+{else}{* Customer doesn't have any active subscriptions *}
+    <h3 style='color: #606060;'>You haven't active subscriptions</h3>    
+{/if}
+<!-- end of display links to protected areas for customer -->
+</td><td valign=top align=center>
+<!-- renew and payment history options -->
+{if $error}
+<table><tr><td>
+{foreach from=$error item=e}
+<li><font color=red><b>{$e}</b></font>
+{/foreach}
+</td></tr></table>
+{/if}
+
+<div align=center><a href="{$config.root_url}/plugins/protect/php_include/logout.php">Logout</a></div>
+<h3 style='color: #606060;'>Add/Renew Subscription</h3>    
+<form name=payment method=post target=_blank>
+<select name=product_id size=1>
+    <option value=0>** Select Product **
+    {html_options options=$products selected=$smarty.request.product_id}
+</select>
+<select name=paysys_id size=1>
+    <option value=''>** Select Payment Method **
+    {html_options options=$paysystems selected=$smarty.request.paysys_id}
+</select>
+<input type=hidden name=action value=renew>
+<input type=submit value=Renew>
+</form>
+
+
+<p align=center><b>Your payment history</p>
+<table class=hedit style='border-collapse: collapse;'
+border=1 bordercolor=#A0A0A0>
+<tr>    
+    <th>Product</th>
+    <th colspan=2>Period</th>
+    <th>Payment System</th>
+    <th>Amount</th>
+</tr>
+{foreach from=$payments item=p}
+<tr {if $p.is_active}style='font-weight: bold;'{/if}>
+    <td>{lookup arr=$products key=$p.product_id}</td>
+    <td nowrap>{$p.begin_date|date_format:"%m/%d/%y"}</td>
+    <td nowrap>{$p.expire_date|date_format:"%m/%d/%y"}</td>
+    <td>
+        {lookup arr=$paysystems key=$p.paysys_id}
+    </td>
+    <td align=right>${$p.amount}&nbsp;</td>
+</tr>
+{/foreach}
+</table>
+<!-- end of renew and payment history options -->
+</td></tr></table>
+
+<!-- Webmaster, don't remove this text. It denied by license! You allowed 
+to change footer.html -->
+<p align=center><small>Built with <a href="http://membership.cgi-central.net/scripts/amember/">aMember</a> free membership script</small></p>
+
+</center>
+{include file="footer.html"}

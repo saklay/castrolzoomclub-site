@@ -1,0 +1,11 @@
+Subject: Your Lost Password
+
+Hi {$name_f} {$name_l},
+
+You receive this mail because someone (possible you) require password
+retrievial.
+
+     Your Login:    {$login}
+     Your Password: {$pass}
+
+Best Regards.

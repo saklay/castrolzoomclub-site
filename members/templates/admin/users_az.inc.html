@@ -1,0 +1,22 @@
+<table bgcolor=#E0E0E0><tr><td>
+&nbsp;&nbsp;
+{if $smarty.request.letter eq ''}
+<span style='background-color: #F0F0F0;'><b>&nbsp;ALL&nbsp;</b></span>
+{else}
+<a href="users.php">ALL</a>&nbsp;
+{/if}
+{foreach from=$az key=l item=ct}
+    {if $l eq $smarty.request.letter[0]}
+    <span style='background-color: #F0F0F0;'><b>&nbsp;{$l}&nbsp;</b></span>
+    {else}
+    <a href="users.php?letter={$l}%">{$l}</a>&nbsp;
+    {/if}
+{/foreach}
+{if $smarty.request.letter eq ''}
+<span style='background-color: #F0F0F0;'><b>&nbsp;ALL&nbsp;</b></span>
+{else}
+<a href="users.php">ALL</a>&nbsp;
+{/if}
+&nbsp;&nbsp;
+</td></tr></table>
+<br><br>

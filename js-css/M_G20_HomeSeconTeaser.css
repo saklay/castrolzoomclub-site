@@ -1,0 +1,42 @@
+.hstHoriContainer {
+
+	background-color: #EFEFEF;
+
+	color: #99cc00;
+
+	width: 223px;
+
+	padding: 10px 5px 15px 10px;
+
+}
+
+
+
+html>body .hstHoriContainer {
+
+padding-top: 4px;
+
+}
+
+
+
+
+
+
+
+
+
+html>body .hstHoriContainer{
+
+	height: auto;
+
+}
+
+
+
+.hstHoriContent{
+
+ 	margin: 6px 5px 0 0;
+
+}
+

@@ -1,0 +1,39 @@
+{assign var=title value="Access Log"}
+{include file="admin/header.inc.html"}
+<center>
+<h3>{$title}</h3>
+
+<table class=hedit width=70%>
+<tr>
+    <th>Time</th>
+    <th>Member</th>
+    <th>URL</th>
+    <th>Remote IP</th>
+    <th>HTTP Referrer</th>
+</tr>
+{foreach from=$list item=p}
+<tr>
+    <td> {$p.time|date_format:"%m/%d/%Y %H:%M:%S"} </td>
+    <td> {$p.login} </td>
+    <td> {$p.url} </td>
+    <td> {$p.remote_addr} </td>
+    <td> {$p.referrer} </td>
+</tr>
+{/foreach}
+</table>
+
+{span count=$count}
+
+<br><br>
+<table width=70% bgcolor=#F0F0F0><tr><td>
+<small><b><div style='font-weight: bold;'>ACCESS_LOG NOTES:</b><br>
+It's access catched by aMember access logging system. You can see this
+when someone access protected page and also you can detect your 
+sales policy violations (by example, access from different IP networks
+with same IP). Of course, script cannot log access to pages, protected
+with .htpasswd.
+</small>
+</td><tr></table>
+
+{include file="admin/footer.inc.html"}
+

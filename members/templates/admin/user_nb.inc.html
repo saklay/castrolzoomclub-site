@@ -1,0 +1,20 @@
+{if $member_id}{else}{assign var=member_id value=$u.member_id}{/if}
+{if $member_id}{else}{assign var=member_id value=$smarty.post.member_id}{/if}
+{if $member_id}{else}{assign var=member_id value=$smarty.get.member_id}{/if}
+
+
+<table width=100% cellspacing=1 cellpadding=0 class=notebook><tr>
+    <td width=33% class={if $selected eq "user"}sel{else}notsel{/if}>
+    <a href="users.php?member_id={$member_id}&action=edit">User Info</a>
+    </td>
+    <td width=33% class={if $selected eq "payments"}sel{else}notsel{/if}>
+    <a href="users.php?member_id={$member_id}&action=payments">User Payments</a>
+    </td>
+    <td width=33% class={if $selected eq "access_log"}sel{else}notsel{/if}>
+    <a href="users.php?member_id={$member_id}&action=access_log">User Access Log</a>
+    </td>
+</tr>
+<tr>
+    <td colspan=3 style='padding: 1px;'><div style='font-size: 2px;'>&nbsp;</font></td>
+</tr>
+</table>

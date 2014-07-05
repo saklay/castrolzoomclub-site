@@ -1,0 +1,17 @@
+Subject: Membership Information
+
+
+Dear {$name_f} {$name_l},
+
+Thank you for subscribing.
+
+   Your User ID: {$login}  
+
+   Your Password: {$pass}
+
+Log-on to your member pages at:
+{$config.root_url}/member.php
+
+Best Regards,
+
+Site Team

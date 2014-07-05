@@ -1,0 +1,15 @@
+<table width=100% cellspacing=1 cellpadding=0 class=notebook><tr>
+    <td width=33% class={if $selected eq "setup"}sel{else}notsel{/if}>
+    <a href="setup.php">General Config</a>
+    </td>
+    <td width=33% class={if $selected eq "plugins"}sel{else}notsel{/if}>
+    <a href="users.php?member_id={$member_id}&action=payments">Plugins</a>
+    </td>
+    <td width=33% class={if $selected eq "plugins_config"}sel{else}notsel{/if}>
+    <a href="users.php?member_id={$member_id}&action=access_log">Plugins Config</a>
+    </td>
+</tr>
+<tr>
+    <td colspan=3 style='padding: 1px;'><div style='font-size: 2px;'>&nbsp;</font></td>
+</tr>
+</table>

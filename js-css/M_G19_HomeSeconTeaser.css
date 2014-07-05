@@ -1,0 +1,45 @@
+.hstVertContainer {
+
+	background-color: #EFEFEF;
+
+	color: #99cc00;
+
+	width: 228px;
+
+	padding: 10px 0 0 10px;
+
+}
+
+
+
+html>body .hstVertContainer{
+
+	border: 0px solid #FFFFFF;
+
+	height: auto;
+
+}
+
+
+
+.hstVertContent{
+
+	margin: 0;
+
+	width: 133px;
+
+	float: left;
+
+}
+
+
+
+.hstVertImage{
+
+	width: 75px;
+
+	margin: 0 10px 0 0;
+
+	float: left;
+
+}

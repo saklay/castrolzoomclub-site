@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>aMember Admin Menu</title>
+    <base target="right">
+    <style>
+    {include_php file="../templates/admin/style.css"}
+    </style>
+</head>
+<body bgcolor=#F0F0F0><div align=left>
+    <h3>Admin Menu</h3>
+
+    <hr width=98% align=center>
+
+    <li type=square><a href="users.php?letter=A%">Browse <b>Users</b></a>
+    <li type=circle style='padding-left: 15px;'><a href="users.php?action=search_form">Search Users</a>
+    <li type=circle style='padding-left: 15px;'><a href="users.php?action=add_form">Add User</a>
+    <br><br>
+    <li type=square><b>Reports</b>
+    <li type=circle style='padding-left: 15px;'><a href="payments.php">Payments</a>
+    <br><br>
+    <li type=square><a href="products.php">Edit Your <b>Products</b></a>
+    <li type=circle style='padding-left: 15px;'><a href="products.php?action=add">Add Product</a>
+    <br><br>
+    <li type=square><b>Logs</b>
+    <li type=circle style='padding-left: 15px;'><a href="error_log.php">View Error Log</a>
+    <li type=circle style='padding-left: 15px;'><a href="access_log.php">View Access Log</a>
+    <br><br>
+    <li type=square><a href="clear.php"><b>Delete Old Records</b></a>
+    <br><br>
+    <li type=square><a href="urls.php"><b>Info and some URL</b></a>
+    <br><br>
+    <li type=square><a href="info.php"><b>Version Info</b></a>
+    <br><br>
+    <li type=square><a href="logout.php" target=_top><b>Logout</b></a>
+    <br><br>
+    <li type=square><a href="http://www.cgi-central.net/scripts/amember/update.php?curr={$config.version}">Check for update</a>
+    <li type=square><a href="http://www.cgi-central.net/scripts/amember/bug.php?curr={$config.version}">Report bug</a>
+    <li type=square><a href="http://www.cgi-central.net/scripts/amember/site_add.php">List my site for free</a>
+    <hr width=98% align=center>
+    <center>
+    <a href="http://cgi-central.net/scripts/amember/"><img src="http://cgi-central.net/scripts/amember/logo.php?version={$config.version}" width=70 height=30 border=0></a>
+    </center>
+
+</div></body>
+</html>

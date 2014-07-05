@@ -1,0 +1,60 @@
+{if $add}
+{assign var=title value="Add Product"}
+{else}
+{assign var=title value="Edit Product"}
+{/if}
+{include file="admin/header.inc.html"}
+<center>
+<h3>{$title}</h3>
+
+<form method=post>
+<table class=vedit>
+<tr>
+    <th><b>Product #</b></th>
+    <td> <b>{$p.product_id}</b></td>
+</tr>
+<tr>
+    <th><b>Title</b><br><small>will be displayed to user</small></th>
+    <td><input type=text name=title {if $p.title}value="{$p.title|escape}"{/if}> </td>
+</tr>
+<tr>
+    <th><b>Description</b><br><small>will be displayed to user</small></th>
+    <td><textarea rows=5 cols=40 name=description>{$p.description|escape:"html"}</textarea> </td>
+</tr>
+<tr>
+    <th><b>Price</b><br><small>enter only digits</small></th>
+    <td><input type=text name=price {if $p.price}value="{$p.price|escape}"{/if}> </td>
+</tr>
+
+{foreach from=$product_additional_fields item=f}
+{if $f.type eq 'select'}
+<tr>
+    <th><b>{$f.title}</b><br><small>{$f.description}</small></th>
+    {assign var=field_name value=$f.name}
+    <td><select name="{$field_name|escape}" size='{$f.size}'>
+    {html_options options=$f.options selected=$p.$field_name}
+    </select>
+    </td>
+</tr>
+{else}
+<tr>
+    <th><b>{$f.title}</b><br><small>{$f.description}</small></th>
+    {assign var=field_name value=$f.name}
+    <td><input type=text name={$field_name} {if $p.$field_name}value="{$p.$field_name|escape}"{/if}>
+    </td>
+</tr>
+{/if}
+{/foreach}
+</table>
+<br>
+<input type=submit value="&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;&nbsp;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type=button value="&nbsp;&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;&nbsp;" onclick="history.back(-1)">
+<input type=hidden name=action value={if $add}add_save{else}edit_save{/if}>
+<input type=hidden name=product_id value="{$p.product_id|escape}">
+</form>
+
+{include file="admin/footer.inc.html"}

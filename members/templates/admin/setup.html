@@ -1,0 +1,28 @@
+{assign var=title value="General Config"}
+{include file="admin/header.inc.html"}
+{assign var=selected value="setup"}
+{include file="admin/setup_nb.inc.html"}
+<center>
+<h3>{$title}</h3>
+
+<form method=post>
+<table class=vedit>
+{foreach from=$config_items item=c}
+<tr>
+    <th><b>{$c.title}</b><br><small>{$c.desc}</small></th>
+    <td>{$c.edit}</td>
+</tr>
+{/foreach}
+</table>
+<br>
+<input type=submit value="&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;&nbsp;&nbsp;&nbsp;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type=button value="&nbsp;&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;&nbsp;" onclick="history.back(-1)">
+<input type=hidden name=action value={if $add}add_save{else}edit_save{/if}>
+<input type=hidden name=product_id value="{$p.product_id|escape}">
+</form>
+
+{include file="admin/footer.inc.html"}

@@ -1,0 +1,31 @@
+/* Begin: Outer div container with borders */
+
+.homeToolTeaser{
+
+	border: 1px solid #99D6AD;
+
+	width: 236px;
+
+	margin: 0 0 15px 0;
+
+	padding: 0;
+
+}
+
+/* End: Outer div container with borders */
+
+
+
+/* Begin: Inner div container with margins */
+
+.homeToolTeaserInside{
+
+	width: 216px;
+
+	margin: 10px 10px 10px 10px;
+
+	padding: 0;
+
+}
+
+/* End: Inner div container with margins */

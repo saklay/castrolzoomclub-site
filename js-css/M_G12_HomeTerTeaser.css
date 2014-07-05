@@ -1,0 +1,46 @@
+.httContainer{
+
+	width: 238px;
+
+	margin-bottom: 15px;
+
+}
+
+
+
+.httContent{
+
+  float: left;
+
+}
+
+
+
+html>body .httContent{
+
+	float:inherit
+
+}
+
+
+
+html>body .httContainer{
+
+	width: 238px;
+
+	margin-bottom: 21px;
+
+}
+
+.httImage{
+
+	width: 75px;
+
+	float: left;
+
+	margin: 0 10px 0 0;
+
+}
+
+
+

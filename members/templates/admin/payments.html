@@ -1,0 +1,74 @@
+{assign var=title value="Payments"}
+{include file="admin/header.inc.html"}
+<center>
+<h3>{$title}</h3>
+<form>
+<table class=hedit>
+<tr>
+    <th>From:</th>
+    <td> 
+      {html_select_date time=$beg_date prefix=beg_date start_year="-1"}
+    </td>
+    <th>To:</th>
+    <td>
+      {html_select_date time=$end_date prefix=end_date start_year="-1"}
+    </td>
+</tr>
+<tr>
+    <td colspan=4>
+    Display completed payments only
+    <input type=checkbox name=only_completed value=1
+    {if $smarty.request.only_completed}checked{/if}
+    >  </td>
+</tr>
+</table>
+<br>
+<input type=submit value=Display>
+</form>
+<br><br>
+
+<table width=98% class=hedit>
+<tr>
+    <th>#</th>
+    <th>Time</th>
+    <th>Member</th>
+    <th>Product</th>
+    <th>Period</th>
+    <th>Payment System</th>
+    <th>Receipt #</th>
+    <th>Amount</th>
+    <th>Completed</th>
+</tr>
+{counter name=count start=0 skip=0 print=false}
+{assign var=amount value=0}
+{foreach from=$list item=p}
+<tr>
+    <td align=right>{$p.payment_id}&nbsp;</td>
+    <td align=center><small>{$p.time|date_format:"%m/%d/%Y %H:%M:%S"}</small></td>
+    <td><a href="users.php?action=payments&member_id={$p.member_id}">{$p.member_login}</a></td>
+    <td>{$p.product_title}</td>
+    <td align=center>{$p.begin_date|date_format:"%m/%d/%Y"} -
+        {$p.expire_date|date_format:"%m/%d/%Y"}</td>
+    <td>{$p.paysys_id}&nbsp;</td>
+    <td>{$p.receipt_id}&nbsp;</td>
+    <td align=right>{$p.amount}&nbsp;</td>
+    <td>{if $p.completed}<b>YES</b>{else}NO{/if}</td>
+    {math equation="a+y" a=$amount y=$p.amount assign=amount}
+</tr>    
+{counter name=count print=false}
+{foreachelse}
+<tr>
+    <td colspan=9 align=center><br><b><font color=red>No payments found. 
+    Try to select different criteria.</font></b><br><br></td>
+</tr>    
+{/foreach}
+<tr>
+    <th colspan=7>TOTAL ({counter name=count skip=0} records)</th>
+    <th align=right>{$amount}&nbsp;</th>
+    <th>&nbsp;</th>
+</tr>    
+</table>
+
+
+{include file="admin/footer.inc.html"}
+

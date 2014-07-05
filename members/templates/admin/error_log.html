@@ -1,0 +1,34 @@
+{assign var=title value="Error Log"}
+{include file="admin/header.inc.html"}
+<center>
+<h3>{$title}</h3>
+
+<table class=hedit width=98%>
+<tr>
+    <th>Time</th>
+    <th>URL</th>
+    <th>Remote IP</th>
+    <th>Error</th>
+</tr>
+{foreach from=$list item=p}
+<tr>
+    <td> {$p.time|date_format:"%m/%d/%Y %H:%M:%S"} </td>
+    <td> {$p.url|truncate:60} </td>
+    <td> {$p.remote_addr} </td>
+    <td> <SMALL>{$p.error}</SMALL> </td>
+</tr>
+{/foreach}
+</table>
+
+{span count=$count}
+
+<br><br>
+<table width=70% bgcolor=#F0F0F0><tr><td>
+<small><b><div style='font-weight: bold;'>ERROR_LOG NOTES:</b><br>
+It's errors catched by aMember error logging system. If something look
+strange - send bug report to CGI-Central.Net immediately.
+</small>
+</td><tr></table>
+
+{include file="admin/footer.inc.html"}
+

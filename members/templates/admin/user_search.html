@@ -1,0 +1,71 @@
+{assign var=title value="Search Users"}
+{include file="admin/header.inc.html"}
+<center>
+<h3>{$title}</h3>
+
+{include file="admin/users_az.inc.html"}
+
+{if $error}
+<font color=red><b>{$error}</b></font>
+<br><br>
+{/if}
+
+<form method=get>
+<table class=vedit>
+    <tr>
+        <th width=50%><b>Search String</b></th>
+        <td><input type=text name=q value="{$smarty.request.q|escape}"></td>
+    </tr>
+    <tr>
+        <th><b>Search</b></th>
+        <td><input type=radio name=q_where value="login"> By Login
+        <br><input type=radio name=q_where value="name"> By Name
+        <br><input type=radio name=q_where value="email"> By Email
+        <br><input type=radio name=q_where value="anywhere" checked> Anywhere
+    </td>
+    </tr>
+</table>
+<input type=hidden name=action value=search_by_string>
+<input type=submit value=Search>
+</form>
+
+<form method=get>
+<table class=vedit>
+    <tr>
+        <th width=50%><b>Search by Subscriptions</b></th>
+        <td> <select name=product_id size=1>
+    {html_options options=$products selected=$smarty.request.product_id}
+    </select>
+    <br><input type=checkbox name=include_expired value=1>Include Expired
+    </td>
+    </tr>
+</table>
+<input type=hidden name=action value=search_by_product>
+<input type=submit value=Search>
+</form>
+
+<form method=get>
+<table class=vedit>
+    <tr>
+        <th width=50%><b>Search by Date</b></th>
+        <td>{html_select_date prefix=date}</td>
+    </tr>
+    <tr>
+        <th width=50%><b>Search Type</b></th>
+        <td><select name=search_type size=1>
+            <option value=begin_date_before>Subscribed before specified date
+            <option value=begin_date>Subscribed exactly on specified date        
+            <option value=begin_date_after>Subscribed after specified date        
+            <option value=expire_date_before>Subscription expires before specified date
+            <option value=expire_date>Subscription expires on specified date        
+            <option value=expire_date_after>Subscription expires after specified date        
+        </select>
+        </td>
+    </tr>
+</table>
+<input type=hidden name=action value=search_by_date>
+<input type=submit value=Search>
+</form>
+
+{include file="admin/footer.inc.html"}
+

@@ -1,0 +1,56 @@
+{assign var=title value="Welcome to aMember Admin"}
+{include file="admin/header.inc.html"}
+
+<h3><br><br>{$title}</h3>
+<center>
+<br><br>
+Select an option from the left.
+</center>
+
+<br><br>
+<br><br>
+If you like this script, please vote it:<br>
+<table align=center bgcolor=#f0f0f0 cellpadding=5>
+<tr><td valign=top width=50% align=center>
+Rate at Hotscripts.com: <br>
+<form action="http://www.hotscripts.com/cgi-bin/rate.cgi" method="POST" target=_blank>
+<input type="hidden" name="ID" value="16801">
+<select name="ex_rate">
+<option value=5>5 - Excellent!
+<option value=4>4 - Very Good!
+<option value=3>3 - Good
+<option value=2>2 - Fair
+<option value=1>1 - Poor
+</select>
+<br>
+<input type=submit value=Rate>
+</form>
+
+</td><td valign=top  align=center>
+
+Rate at ResourceIndex.com:<br>
+<form method=POST action="http://php.resourceindex.com/rate/index.cgi" target=_blank>
+        <input type=hidden name="referer" value="http://php.resourceindex.com/">
+        <input type=hidden name="link_code" value="01577">
+        <input type=hidden name="category_name" value="Complete Scripts/User Management/">
+        <input type=hidden name="link_name" value="aMember">
+         <select name="rating">
+          <option value=10>10 - Excellent!
+          <option value=9>9
+          <option value=8>8 - Very Good
+          <option value=7>7
+          <option value=6>6 - Good
+          <option value=5>5
+          <option value=4>4 - Fair
+          <option value=3>3
+          <option value=2>2
+          <option value=1>1 - Poor
+          </select>
+          <br>
+<input type=submit value=Rate>
+</form>
+
+</td></tr></table>
+
+
+{include file="admin/footer.inc.html"}

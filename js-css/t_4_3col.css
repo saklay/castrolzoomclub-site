@@ -1,0 +1,126 @@
+#mainDiv {
+
+	margin: 0 0 0 20px;
+
+	width: 740px;
+
+}
+
+
+
+.container265 {
+
+	float: left;
+
+	margin: 0 15px 0 0;
+
+	width: 265px;
+
+}
+
+
+
+.mContainer {
+
+	float: left;
+
+	width: 265px;
+
+	margin: 0;
+
+	padding: 0;
+
+}
+
+
+
+.rContainer {
+
+	float: right;
+
+	width: 180px;
+
+	margin: 0;
+
+}
+
+
+
+.holdingContainer {
+
+	float: left;
+
+	width: 740px;
+
+}
+
+
+
+/* Begin: H2 Homepage */
+
+.container238{
+
+	float: left;
+
+	width: 238px;
+
+}
+
+
+
+/* End: H2 Homepage */
+
+
+
+/* Begin: H1 Homepage */
+
+.container489{
+
+	float: left;
+
+	width: 489px;
+
+}
+
+
+
+html>body .container489{
+
+	float: left;
+
+	width: 500px;
+
+}
+
+.container488{
+
+	float: left;
+
+	width: 488px;
+
+}
+
+
+
+.holdingMergedContainer{
+
+	width: 488px;
+
+	margin-bottom: 15px;
+
+}
+
+
+
+.mainDiv760{
+
+width: 760px;
+
+}
+
+/* End: H1 Homepage */
+
+
+
+
+
